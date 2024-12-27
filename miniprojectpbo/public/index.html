@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Pengelolaan Kapal Nelayan</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0U9pL1BCsw2P0p/5yCHP/S0wCwQs4iJKl7Y+c1g8xjp7g2b0" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Judul Halaman di tengah -->
+    <h1 class="text-center mb-4">Aplikasi Pengelolaan Kapal Nelayan</h1>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center mb-4">Tambah Kapal</h2>
+        <form id="kapal-form">
+          <!-- Input Nama Kapal -->
+          <div class="form-group">
+            <label for="nama-kapal">Nama Kapal</label>
+            <input type="text" class="form-control" id="nama-kapal" placeholder="Nama Kapal" required>
+          </div>
+
+          <!-- Input Jenis Kapal -->
+          <div class="form-group">
+            <label for="jenis-kapal">Jenis Kapal</label>
+            <input type="text" class="form-control" id="jenis-kapal" placeholder="Jenis Kapal" required>
+          </div>
+
+          <!-- Input Kapasitas Muatan -->
+          <div class="form-group">
+            <label for="kapasitas-muatan">Kapasitas Muatan</label>
+            <input type="number" class="form-control" id="kapasitas-muatan" placeholder="Kapasitas Muatan" required>
+          </div>
+
+          <!-- Tombol Submit -->
+          <button type="submit" class="btn btn-primary btn-block">Tambah Kapal</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+<script>
+  const socket = io('http://localhost:5000');
+
+  // Menerima notifikasi
+  socket.on('data_changed', (data) => {
+    alert(data.message);  // Menampilkan pesan notifikasi
+    console.log(data);
+  });
+</script>
+
+
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zyuQW5t9j2U6RbXJlEnZmy1mV7v3ScFky2F3Nfmc" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0U9pL1BCsw2P0p/5yCHP/S0wCwQs4iJKl7Y+c1g8xjp7g2b0" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0U9pL1BCsw2P0p/5yCHP/S0wCwQs4iJKl7Y+c1g8xjp7g2b0" crossorigin="anonymous"></script>
+</body>
+</html>
